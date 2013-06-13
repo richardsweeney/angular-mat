@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="matApp">
 <head>
 
     <meta charset="UTF-8">
@@ -11,29 +11,16 @@
 </head>
 <body>
 
-    <div ng-controller="SearchController">
+    <div ng-controller="HomeCtrl">
 
         <form ng-submit="search()">
             <input type="search" name="search" placeholder="Äpple" ng-model="searchTerm">
             <input type="submit" value="Sök">
         </form>
 
-        <ul>
-            <li ng-repeat="result in searchResults">
-                <a ng-click="getFoodStuff( $event, result.number )" href="#" id="{{ result.number }}">{{ result.name }}</a>
-            </li>
-        </ul>
-
-        <div ng-model="foodstuff">
-            <h2>{{ foodstuff.name }}</h2>
-            <ul>
-                <li ng-repeat="property in foodstuff.properties">
-                    <strong>{{ property.name }}:</strong> {{ property.value }}
-                </li>
-            </ul>
-        </div>
-
     </div>
+
+    <div ng-view></div>
 
 </body>
 </html>
