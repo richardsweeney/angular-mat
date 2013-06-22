@@ -6,16 +6,28 @@
 }
 
 @mixin button( $color: #3F72D8 ) {
-    font-size: 14px;
-    padding: 3px 20px;
+    font-size: 16px;
+    padding: 5px 10px;
     border: none;
     background: $color;
     color: #fff;
-    border: 1px solid rgba( #000, 0.1 );
+    border: 2px solid rgba( #000, 0.1 );
     text-shadow: 1px 1px 1px rgba( #000, 0.4 );
     cursor: pointer;
     @include border-radius( 2px );
 }
+
+@mixin small-button() {
+    font-size: 12px;
+    padding: 4px 8px;
+    color: #111;
+    border: 1px solid rgba( #000, 0.2 );
+    text-shadow: none;
+    background: #fff;
+    @include background( linear-gradient( top, #fff, #fafafa ) );
+    @include border-radius( 2px );
+}
+
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -24,6 +36,7 @@ body {
 .container {
     width: 100%;
     min-width: 320px;
+    max-width: 600px;
     margin: 30px auto;
     background: #fafafa;
     padding: 20px;
@@ -39,16 +52,28 @@ h1 {
     }
 }
 
-input[type=search] {
+input[type=search],
+input[type=text] {
     font-size: 18px;
-    padding: 10px 5px;
-    min-width: 250px;
+    padding: 5px 10px;
+    min-width: 200px;
     margin-bottom: 20px;
+    border: 1px solid rgba( #000, 0.25 );
+    @include box-shadow( inset 1px 1px 1px rgba( #000, 0.1 ) );
+    @include border-radius( 3px );
+
+}
+input[type=search] {
+    -webkit-appearance: none;
+    padding: 5px 0;
 }
 
 input[type=submit],
 button {
     @include button;
+    &.small {
+        @include small-button;
+    }
 }
 
 ul {
@@ -70,3 +95,20 @@ a {
     width: 120px;
     @include inline-block;
 }
+
+.list {
+    max-width: 300px;
+}
+
+a.remove {
+    padding: 0 3px;
+    float: right;
+    color: red;
+    @include border-radius( 10px );
+}
+
+.message {
+    padding: 20px 0;
+    color: #333;
+}
+

@@ -1,0 +1,14 @@
+
+<section>
+
+    <header>
+        <h1 class="secondary">Listor</h1>
+    </header>
+
+    <ul>
+        <li ng-repeat="foodstuff in foods">
+            <a href="/foodstuff/{{ foodstuff.number }}">{{ foodstuff.name }}</a>
+        </li>
+    </ul>
+
+</section>

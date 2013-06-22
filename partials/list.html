@@ -1,0 +1,18 @@
+
+<section>
+
+    <header>
+        <h1 class="secondary">Listor</h1>
+    </header>
+
+    <ul class="list">
+        <li ng-repeat="list in lists">
+            <a href="/list/{{ $index }}">{{ list.name }}</a>
+            <a href="/list" class="remove" ng-click="removeListItem( $index )">x</a>
+        </li>
+    </ul>
+
+    <input type="text" name="list" placeholder="ost" ng-model="listTitle">
+    <button ng-click="newList()">Skapa ny</button>
+
+</section>

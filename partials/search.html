@@ -6,6 +6,8 @@
         </h1>
     </header>
 
+    <p>{{ noResults }}</p>
+
     <ul>
         <li ng-repeat="result in results">
             <a href="/foodstuff/{{ result.number }}">{{ result.name }}</a>

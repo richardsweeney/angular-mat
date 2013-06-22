@@ -70,48 +70,65 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   box-sizing: border-box;
 }
 
-/* line 20, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* line 24, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 .container {
   width: 100%;
   min-width: 320px;
+  max-width: 600px;
   margin: 30px auto;
   background: #fafafa;
   padding: 20px;
 }
 
-/* line 33, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
 }
-/* line 36, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 h1.secondary {
   font-size: 1.4em;
   padding-top: 15px;
 }
 
-/* line 42, ../sass/main.scss */
-input[type=search] {
+/* line 56, ../sass/main.scss */
+input[type=search],
+input[type=text] {
   font-size: 18px;
-  padding: 10px 5px;
-  min-width: 250px;
+  padding: 5px 10px;
+  min-width: 200px;
   margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
 
-/* line 50, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
+input[type=search] {
+  -webkit-appearance: none;
+  padding: 5px 0;
+}
+
+/* line 72, ../sass/main.scss */
 input[type=submit],
 button {
-  font-size: 14px;
-  padding: 3px 20px;
+  font-size: 16px;
+  padding: 5px 10px;
   border: none;
   background: #3f72d8;
   color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   -webkit-border-radius: 2px;
@@ -120,26 +137,46 @@ button {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
+/* line 74, ../sass/main.scss */
+input[type=submit].small,
+button.small {
+  font-size: 12px;
+  padding: 4px 8px;
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  text-shadow: none;
+  background: #fff;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #fafafa));
+  background: -webkit-linear-gradient(top, #ffffff, #fafafa);
+  background: -moz-linear-gradient(top, #ffffff, #fafafa);
+  background: -o-linear-gradient(top, #ffffff, #fafafa);
+  background: linear-gradient(top, #ffffff, #fafafa);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
 
-/* line 54, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 ul {
   list-style: none;
   margin: 20px 0;
   padding: 0;
 }
 
-/* line 59, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 li {
   padding-bottom: 5px;
 }
 
-/* line 63, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #3F72D8;
 }
 
-/* line 68, ../sass/main.scss */
+/* line 93, ../sass/main.scss */
 .name {
   font-weight: bold;
   width: 120px;
@@ -149,4 +186,27 @@ a {
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
+}
+
+/* line 99, ../sass/main.scss */
+.list {
+  max-width: 300px;
+}
+
+/* line 103, ../sass/main.scss */
+a.remove {
+  padding: 0 3px;
+  float: right;
+  color: red;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 110, ../sass/main.scss */
+.message {
+  padding: 20px 0;
+  color: #333;
 }

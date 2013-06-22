@@ -11,6 +11,12 @@
         </li>
     </ul>
 
-    <button ng-click="save()">Spara livsmedel</button>
+    <button class="small" ng-click="save()">spara till lista</button>
+
+    <select ng-model="listObject" ng-options="list.name for list in lists">
+        <option value=""> -- välj -- </option>
+    </select>
+
+    <p class="message">{{ message }}</p>
 
 </section>

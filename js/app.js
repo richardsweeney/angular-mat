@@ -16,7 +16,73 @@ var app = angular
                 templateUrl: '/partials/foodstuff.html'
 
             })
+            .when( '/list', {
+                controller: ListCtrl,
+                templateUrl: '/partials/list.html'
+
+            })
+            .when( '/list/:id', {
+                controller: SingleListCtrl,
+                templateUrl: '/partials/single-list.html'
+
+            })
             .otherwise({ redirectTo: '/' })
+
+    })
+    .factory( 'lists', function( ) {
+
+        if ( localStorage.angularMat === undefined ) {
+            localStorage.angularMat = angular.toJson( { lists: [] } )
+        }
+
+        return {
+
+            get: function () {
+                var storage = angular.fromJson( localStorage.angularMat )
+                return storage.lists
+            },
+            set: function( list ) {
+                var storage = angular.fromJson( localStorage.angularMat )
+                storage.lists.push( list )
+                localStorage.angularMat = angular.toJson( storage )
+                return storage.lists
+            },
+            remove: function( index ) {
+                var storage = angular.fromJson( localStorage.angularMat )
+                storage.lists.splice( index, 1 )
+                localStorage.angularMat = angular.toJson( storage )
+                return storage.lists
+            },
+            setFoodstuff: function( index, foodstuff ) {
+                var storage = angular.fromJson( localStorage.angularMat ),
+                    foodsList = storage.lists[ index ].foods,
+                    exists = false
+
+
+                angular.forEach( foodsList, function( food, index ) {
+                    if ( food.name === foodstuff.name )
+                        exists = true
+
+                })
+
+                if ( exists === true )
+                    return foodstuff.name + ' finns redan i denna lista'
+
+                storage.lists[ index ].foods.push( foodstuff )
+                localStorage.angularMat = angular.toJson( storage )
+
+                return foodstuff.name + ' har lagts till i listan'
+
+            },
+            removeFoodstuff: function( index, foodstuff ) {
+                var storage = angular.fromJson( localStorage.angularMat )
+                // storage.lists[ index ].foods.splice( foodstuff ) FIX THIS!!
+                localStorage.angularMat = angular.toJson( storage )
+                return storage.lists
+            },
+
+        }
+
 
     })
     .factory( 'matApi', function( $http, $q, $routeParams ) {
@@ -65,10 +131,18 @@ var app = angular
 
 function HomeCtrl( $scope, $location, matApi ) {
 
+    $scope.searchTerm = ''
 
     $scope.search = function() {
-        $location.path( '/search/' + $scope.searchTerm )
+        $scope.message = ''
+
+        if ( '' === $scope.searchTerm )
+            $scope.message = 'Vänligen ange ett sökord'
+        else
+            $location.path( '/search/' + $scope.searchTerm )
+
     }
+
 
 }
 
@@ -76,12 +150,13 @@ function HomeCtrl( $scope, $location, matApi ) {
 function SearchCtrl( $scope, $routeParams, matApi ) {
 
     $scope.term = $routeParams.term
+    $scope.noResults = ''
 
     matApi
         .search()
         .then( function ( data ) {
             if ( data.length === 0 )
-                alert( 'no results!' )
+                $scope.noResults = 'inga resultat hittades'
             else
                 $scope.results = data
 
@@ -90,7 +165,7 @@ function SearchCtrl( $scope, $routeParams, matApi ) {
 }
 
 
-function FoodstuffCtrl( $scope, $routeParams, $location, matApi ) {
+function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
 
     matApi
         .getFoodstuff( $routeParams.id )
@@ -110,8 +185,52 @@ function FoodstuffCtrl( $scope, $routeParams, $location, matApi ) {
 
         })
 
+
+    $scope.lists = lists.get()
+
     $scope.save = function() {
-        console.log( $scope.foodstuff )
+
+        if ( $scope.listObject === undefined )
+            return false
+
+        var foodstuff = {
+            name: $scope.foodstuff.name,
+            number: $routeParams.id
+        }
+
+        angular.forEach( $scope.lists, function( list, index ) {
+            if ( list.name === $scope.listObject.name ) {
+                $scope.message = lists.setFoodstuff( index, foodstuff )
+            }
+
+        })
     }
+
+}
+
+
+function ListCtrl( $scope, lists ) {
+
+    $scope.lists = lists.get()
+
+    $scope.newList = function() {
+        $scope.lists = lists.set({
+            name: $scope.listTitle,
+            foods: []
+        })
+        $scope.listTitle = ''
+    }
+
+    $scope.removeListItem = function( index ) {
+        $scope.lists = lists.remove( index )
+    }
+
+}
+
+
+function SingleListCtrl( $scope, $routeParams, lists ) {
+
+    var lists = lists.get()
+    $scope.foods = lists[$routeParams.id].foods
 
 }
