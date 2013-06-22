@@ -1,8 +1,16 @@
-<div ng-model="foodstuff">
-    <h2>{{ foodstuff.name }}</h2>
+
+<section>
+
+    <header>
+        <h1 class="secondary">{{ foodstuff.name }}</h1>
+    </header>
+
     <ul>
         <li ng-repeat="property in foodstuff.properties">
-            <strong>{{ property.name }}:</strong> {{ property.value }}
+            <span class="name">{{ property.name }}</span> {{ property.value }}
         </li>
     </ul>
-</div>
+
+    <button ng-click="save()">Spara livsmedel</button>
+
+</section>

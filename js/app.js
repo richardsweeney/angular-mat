@@ -6,9 +6,6 @@ var app = angular
         $locationProvider.html5Mode( true )
 
         $routeProvider
-            .when( '/', {
-                controller: HomeCtrl
-            })
             .when( '/search/:term', {
                 controller: SearchCtrl,
                 templateUrl: '/partials/search.html'
@@ -22,19 +19,19 @@ var app = angular
             .otherwise({ redirectTo: '/' })
 
     })
-    .factory( 'matApi', function( $http, $q ) {
+    .factory( 'matApi', function( $http, $q, $routeParams ) {
 
         delete $http.defaults.headers.common['X-Requested-With']
 
         return {
-            search: function( term ) {
+            search: function() {
                 //create our deferred object.
                 var deferred = $q.defer()
 
                 $http
-                    .get( 'http://matapi.se/foodstuff/?query=' + term )
-                    .success( function( data ) {
-                        deferred.resolve( data )
+                    .get( 'http://matapi.se/foodstuff/?query=' + $routeParams.term )
+                    .success( function( results ) {
+                        deferred.resolve( results )
 
                     })
                     .error( function() {
@@ -68,6 +65,7 @@ var app = angular
 
 function HomeCtrl( $scope, $location, matApi ) {
 
+
     $scope.search = function() {
         $location.path( '/search/' + $scope.searchTerm )
     }
@@ -75,13 +73,18 @@ function HomeCtrl( $scope, $location, matApi ) {
 }
 
 
-function SearchCtrl( $scope, $routeParams, $location, matApi ) {
-    $scope.results = []
+function SearchCtrl( $scope, $routeParams, matApi ) {
+
+    $scope.term = $routeParams.term
 
     matApi
-        .search( $routeParams.term )
+        .search()
         .then( function ( data ) {
-            $scope.results = data
+            if ( data.length === 0 )
+                alert( 'no results!' )
+            else
+                $scope.results = data
+
         })
 
 }
@@ -89,30 +92,26 @@ function SearchCtrl( $scope, $routeParams, $location, matApi ) {
 
 function FoodstuffCtrl( $scope, $routeParams, $location, matApi ) {
 
-    $scope.foodstuff = {}
+    matApi
+        .getFoodstuff( $routeParams.id )
+        .then( function ( data ) {
 
-    $scope.getFoodStuff = function( $event, id ) {
-        $event.preventDefault()
-        $scope.foodstuff = {}
+            // Prepare the foodstuff object
+            $scope.foodstuff = {
+                name: data.name,
+                properties: [
+                    { name: 'Kolhydrater',      value: data.nutrientValues.carbohydrates    },
+                    { name: 'Protein',          value: data.nutrientValues.protein          },
+                    { name: 'Energy (Kcal)',    value: data.nutrientValues.energyKcal       },
+                    { name: 'Fett',             value: data.nutrientValues.fat              },
+                    { name: 'Kolesterol',       value: data.nutrientValues.cholesterol      }
+                ]
+            }
 
-        matApi
-            .getFoodstuff( id )
-            .then( function ( data ) {
+        })
 
-                // Prepare the foodstuff object
-                $scope.foodstuff = {
-                    name: data.name,
-                    properties: [
-                        { name: 'kolhydrater',      value: data.nutrientValues.carbohydrates    },
-                        { name: 'protein',          value: data.nutrientValues.protein          },
-                        { name: 'energy (Kcal)',    value: data.nutrientValues.energyKcal       },
-                        { name: 'fett',             value: data.nutrientValues.fat              },
-                        { name: 'kolesterol',       value: data.nutrientValues.cholesterol      }
-                    ]
-                }
-
-            })
-
+    $scope.save = function() {
+        console.log( $scope.foodstuff )
     }
 
 }

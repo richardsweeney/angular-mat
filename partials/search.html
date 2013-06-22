@@ -1,5 +1,16 @@
-<ul>
-    <li ng-repeat="result in results">
-        <a href="/foodstuff/{{ result.number }}">{{ result.name }}</a>
-    </li>
-</ul>
+<section>
+
+    <header>
+        <h1 class="secondary">
+            Sök resultat för "{{ term }}"
+        </h1>
+    </header>
+
+    <ul>
+        <li ng-repeat="result in results">
+            <a href="/foodstuff/{{ result.number }}">{{ result.name }}</a>
+        </li>
+    </ul>
+
+
+</section>
