@@ -63,31 +63,39 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 16, ../sass/main.scss */
+/* line 4, ../sass/main.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 20, ../sass/main.scss */
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* line 20, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
 .container {
-  width: 500px;
+  width: 100%;
+  min-width: 320px;
   margin: 30px auto;
   background: #fafafa;
   padding: 20px;
 }
 
-/* line 28, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
 }
-/* line 31, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 h1.secondary {
   font-size: 1.4em;
   padding-top: 15px;
 }
 
-/* line 37, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 input[type=search] {
   font-size: 18px;
   padding: 10px 5px;
@@ -95,7 +103,7 @@ input[type=search] {
   margin-bottom: 20px;
 }
 
-/* line 45, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 input[type=submit],
 button {
   font-size: 14px;
@@ -113,25 +121,25 @@ button {
   border-radius: 2px;
 }
 
-/* line 49, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 ul {
   list-style: none;
   margin: 20px 0;
   padding: 0;
 }
 
-/* line 54, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 li {
   padding-bottom: 5px;
 }
 
-/* line 58, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #3F72D8;
 }
 
-/* line 63, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 .name {
   font-weight: bold;
   width: 120px;
