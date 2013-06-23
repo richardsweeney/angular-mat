@@ -3,6 +3,10 @@ var app = angular
     .module( 'matApp', ['ngSanitize'] )
     .config( function( $routeProvider, $locationProvider ) {
 
+        window.setTimeout( function() {
+            window.scrollTo( 0, 1 )
+        }, 0 )
+
         $locationProvider.html5Mode( true )
 
         $routeProvider
