@@ -31,7 +31,7 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    -webkit-text-size-adjust: none;
+    -webkit-text-size-adjust: 120%;
 }
 
 strong {
@@ -152,7 +152,7 @@ a.remove {
     padding: 0 3px;
     float: right;
     color: red;
-    @include border-radius( 10px );
+    font-size: 20px;
 }
 
 .message {

@@ -2,10 +2,11 @@
 <section>
 
     <header>
-        <h1 class="secondary">Listor</h1>
+        <h1 class="secondary">{{ name }}</h1>
+        <p class="delete-list"><a href="#" ng-click="removeList()">Radera lista</a></p>
     </header>
 
-    <ul>
+    <ul class="list">
         <li ng-repeat="foodstuff in foods">
             <a href="/foodstuff/{{ foodstuff.number }}">{{ foodstuff.name }}</a>
             <a href="#" class="remove" ng-click="removeListItem( $index )">x</a>

@@ -73,7 +73,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 32, ../sass/main.scss */
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  -webkit-text-size-adjust: none;
+  -webkit-text-size-adjust: 120%;
 }
 
 /* line 37, ../sass/main.scss */
@@ -252,11 +252,7 @@ a.remove {
   padding: 0 3px;
   float: right;
   color: red;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+  font-size: 20px;
 }
 
 /* line 158, ../sass/main.scss */

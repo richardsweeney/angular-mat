@@ -151,15 +151,6 @@ function HomeCtrl( $scope, $location, matApi, lists ) {
 
     $scope.searchTerm = ''
 
-    $scope.showSearch = true
-
-    $scope.dropSearch = function() {
-        if ( $scope.showSearch === true )
-            $scope.showSearch = false
-        else
-            $scope.showSearch = true
-    }
-
     $scope.search = function() {
         $scope.message = ''
 
@@ -261,15 +252,22 @@ function ListCtrl( $scope, lists ) {
 }
 
 
-function SingleListCtrl( $scope, $routeParams, lists ) {
+function SingleListCtrl( $scope, $routeParams, $location, lists ) {
 
     var allLists = lists.get(),
         currentList = allLists[ $routeParams.id ]
 
+    $scope.name = currentList.name
     $scope.foods = currentList.foods
 
     $scope.removeListItem = function( foodstuffIndex ) {
         $scope.foods = lists.removeFoodstuff( $routeParams.id, foodstuffIndex )
+    }
+
+    $scope.removeList = function() {
+        $scope.lists = lists.remove( $routeParams.id )
+        $location.path( '/list' )
+
     }
 
 }
