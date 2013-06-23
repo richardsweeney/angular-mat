@@ -7,8 +7,8 @@
 
     <ul class="list">
         <li ng-repeat="list in lists">
-            <a href="/list/{{ $index }}">{{ list.name }}</a>
-            <a href="/list" class="remove" ng-click="removeListItem( $index )">x</a>
+            <a href="/list/{{ $index }}">{{ list.name }} <span class="entypo">&#59230;</span></a>
+            <a href="/list" class="remove" ng-click="removeListItem( $index )">&#10006;</a>
         </li>
     </ul>
 

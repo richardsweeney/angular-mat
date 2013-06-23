@@ -1,5 +1,6 @@
 @import 'compass';
 @import 'compass/reset';
+@import 'entypo';
 
 * {
     @include box-sizing( 'border-box' );
@@ -31,7 +32,7 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    -webkit-text-size-adjust: 120%;
+    -webkit-text-size-adjust: 115%;
 }
 
 strong {
@@ -45,8 +46,9 @@ em {
     width: 100%;
     min-width: 320px;
     max-width: 600px;
+    min-height: 500px;
     margin: auto;
-    background: #fafafa;
+    background: #f8f9f8;
     padding: 55px 20px;
     position: relative;
     @include box-shadow( 0 0 3px rgba( #000, 0.2 ) )
@@ -61,7 +63,6 @@ nav {
     background: #111;
     color: #fff;
     height: 35px;
-    padding-top: 8px;
     a {
         color: #fff;
         padding: 10px;
@@ -72,10 +73,11 @@ nav {
     li {
         &:first-child {
             float: left;
-            margin-top: 2px;
+            font-size: 30px;
         }
         &:last-child {
             float: right;
+            margin-top: 10px;
         }
     }
 }
@@ -97,7 +99,7 @@ h2.new-list-header {
 input[type=search],
 input[type=text] {
     font-size: 18px;
-    padding: 10px;
+    padding: 5px 10px;
     width: 75%;
     max-width: 350px;
     min-width: 200px;
@@ -107,9 +109,6 @@ input[type=text] {
     @include border-radius( 3px );
     -webkit-appearance: none;
 
-}
-input[type=search] {
-    padding: 5px 0;
 }
 
 input[type=submit],
@@ -121,8 +120,11 @@ button {
     }
 }
 
-select {
+button.sok {
+    font-size: 29px;
+    padding: 0px 20px;
 }
+
 
 ul {
     list-style: none;
@@ -130,7 +132,7 @@ ul {
     padding: 0;
 }
 li {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 a {
@@ -138,21 +140,54 @@ a {
     color: #3F72D8;
 }
 
-.name {
-    font-weight: bold;
-    width: 150px;
-    @include inline-block;
-}
 
 .list {
-    max-width: 300px;
+    max-width: 350px;
+    margin-bottom: 30px;
+    li {
+        @include clearfix;
+    }
+    a {
+        float: left;
+        padding: 10px;
+        background: #fff;
+        color: #333;
+        width: 80%;
+        position: relative;
+        @include box-shadow( 0 0 2px rgba( #000, 0.3 ) );
+        @include border-radius( 2px );
+        span {
+            position: absolute;
+            right: 10px;
+            top: -2px;
+            font-size: 40px;
+        }
+        &.remove {
+            background: none;
+            float: right;
+            font-size: 20px;
+            color: #222;
+            width: 10%;
+            @include box-shadow( none );
+        }
+    }
 }
 
-a.remove {
-    padding: 0 3px;
-    float: right;
-    color: red;
-    font-size: 20px;
+.foodstuff {
+    margin-top: 40px;
+    li {
+        padding: 5px;
+    }
+    li:nth-of-type( odd ) {
+        background: #fff;
+    }
+}
+
+
+.name {
+    // font-weight: normal;
+    width: 150px;
+    @include inline-block;
 }
 
 .message {

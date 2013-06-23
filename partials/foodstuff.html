@@ -6,13 +6,13 @@
         <h2>Näringsvärden per 100g</h2>
     </header>
 
-    <ul>
+    <ul class="foodstuff">
         <li ng-repeat="property in foodstuff.properties">
             <span class="name">{{ property.name }}</span> {{ property.value }} {{ property.unit }}
         </li>
     </ul>
 
-    <footer>
+    <footer ng-show="lists">
 
         <header>
             <h2 class="new-list-header">Lägg till i lista:</h2>

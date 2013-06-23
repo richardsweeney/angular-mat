@@ -8,9 +8,9 @@
 
     <p>{{ noResults }}</p>
 
-    <ul>
+    <ul class="list">
         <li ng-repeat="result in results">
-            <a href="/foodstuff/{{ result.number }}">{{ result.name }}</a>
+            <a href="/foodstuff/{{ result.number }}">{{ result.name }} <span class="entypo">&#59230;</span></a>
         </li>
     </ul>
 

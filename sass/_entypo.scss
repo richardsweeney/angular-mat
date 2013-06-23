@@ -1,0 +1,139 @@
+
+@font-face {
+    font-family: 'EntypoRegular';
+    src: url('../fonts/entypo.eot');
+    src: url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/entypo.woff') format('woff'),
+         url('../fonts/entypo.ttf') format('truetype'),
+         url('../fonts/entypo.svg#EntypoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+}
+
+.entypo {
+    font-family: 'EntypoRegular';
+    &.phone:before{ content:'\0021'; }
+    &.smartphone:before{ content:'\0022'; }
+    &.mouse:before{ content:'\0023'; }
+    &.roadsign:before{ content:'\0024'; }
+    &.mail:before{ content:'\0025'; }
+    &.write:before{ content:'\0026'; }
+    &.attachment:before{ content:'\0027'; }
+    &.back:before{ content:'\0028'; }
+    &.doubleback:before{ content:'\0029'; }
+    &.forward:before{ content:'\002A'; }
+    &.user:before{ content:'\002B'; }
+    &.usergroup:before{ content:'\002C'; }
+    &.adduser:before{ content:'\002D'; }
+    &.profie:before{ content:'\002E'; }
+    &.newwindow:before{ content:'\002F'; }
+    &.mappin:before{ content:'\0030'; }
+    &.map:before{ content:'\0031'; }
+    &.compass:before{ content:'\0032'; }
+    &.compasshand:before{ content:'\0033'; }
+    &.crosshair:before{ content:'\0034'; }
+    &.link:before{ content:'\0035'; }
+    &.heart:before{ content:'\0036'; }
+    &.star:before{ content:'\0037'; }
+    &.thumbsup:before{ content:'\0038'; }
+    &.conversation:before{ content:'\0039'; }
+    &.comment:before{ content:'\003A'; }
+    &.rightquote:before{ content:'\003B'; }
+    &.printer:before{ content:'\003C'; }
+    &.bell:before{ content:'\003D'; }
+    &.brokenlink:before{ content:'\003E'; }
+    &.flag:before{ content:'\003F'; }
+    &.gear:before{ content:'\0040'; }
+    &.flashlight:before{ content:'\0041'; }
+    &.trophy:before{ content:'\0042'; }
+    &.tag:before{ content:'\0043'; }
+    &.camera:before{ content:'\0044'; }
+    &.moon:before{ content:'\0045'; }
+    &.palette:before{ content:'\0046'; }
+    &.envato:before{ content:'\0047'; }
+    &.musicnote:before{ content:'\0048'; }
+    &.bag:before{ content:'\0049'; }
+    &.airplane:before{ content:'\004A'; }
+    &.lifesaver:before{ content:'\004B'; }
+    &.rings:before{ content:'\004C'; }
+    &.eye:before{ content:'\004D'; }
+    &.clock:before{ content:'\004E'; }
+    &.microphone:before{ content:'\004F'; }
+    &.calender:before{ content:'\0050'; }
+    &.bolt:before{ content:'\0051'; }
+    &.hourglass:before{ content:'\0052'; }
+    &.rss:before{ content:'\0053'; }
+    &.signal:before{ content:'\0054'; }
+    &.lock:before{ content:'\0055'; }
+    &.unlock:before{ content:'\0056'; }
+    &.checkmark:before{ content:'\0057'; }
+    &.xmark:before{ content:'\0058'; }
+    &.minuscircle:before{ content:'\0059'; }
+    &.pluscircle:before{ content:'\005A'; }
+    &.xmarkcircle:before{ content:'\005B'; }
+    &.minus:before{ content:'\005C'; }
+    &.plus:before{ content:'\005D'; }
+    &.cancel:before{ content:'\005E'; }
+    &.info:before{ content:'\005F'; }
+    &.infocircle:before{ content:'\0060'; }
+    &.questionmark:before{ content:'\0061'; }
+    &.questioncircle:before{ content:'\0062'; }
+    &.caution:before{ content:'\0063'; }
+    &.clockwise:before{ content:'\0064'; }
+    &.counterclockwise:before{ content:'\0065'; }
+    &.crosspaths:before{ content:'\0066'; }
+    &.backarrow:before{ content:'\0067'; }
+    &.looparrow:before{ content:'\0068'; }
+    &.list:before{ content:'\0069'; }
+    &.listadd:before{ content:'\006A'; }
+    &.window:before{ content:'\006B'; }
+    &.document:before{ content:'\006C'; }
+    &.portrait:before{ content:'\006D'; }
+    &.copydocument:before{ content:'\006E'; }
+    &.landscape:before{ content:'\006F'; }
+    &.photos:before{ content:'\0070'; }
+    &.video:before{ content:'\0071'; }
+    &.music:before{ content:'\0072'; }
+    &.folder:before{ content:'\0073'; }
+    &.cabinet:before{ content:'\0074'; }
+    &.trash:before{ content:'\0075'; }
+    &.upload:before{ content:'\0076'; }
+    &.download:before{ content:'\0077'; }
+    &.hdd:before{ content:'\0078'; }
+    &.cloud:before{ content:'\0079'; }
+    &.cloudupload:before{ content:'\007A'; }
+    &.play:before{ content:'\007B'; }
+    &.pause:before{ content:'\007C'; }
+    &.record:before{ content:'\007D'; }
+    &.stop:before{ content:'\007E'; }
+    &.creativecommons:before{ content:'\00A9'; }
+    &.widewindow:before{ content:'\00AE'; }
+    &.nexttrack:before{ content:'\00C4'; }
+    &.previoustrack:before{ content:'\00C5'; }
+    &.beginningtrack:before{ content:'\00C7'; }
+    &.endtrack:before{ content:'\00C9'; }
+    &.zoomout:before{ content:'\00D1'; }
+    &.zoomin:before{ content:'\00D6'; }
+    &.volume:before{ content:'\00DC'; }
+    &.volumeoff:before{ content:'\00E0'; }
+    &.volumeon:before{ content:'\00E1'; }
+    &.leftarrow:before{ content:'\00E2'; }
+    &.uparrow:before{ content:'\00E3'; }
+    &.downarrow:before{ content:'\00E4'; }
+    &.rightarrow:before{ content:'\00E5'; }
+    &.leftarrowsmall:before{ content:'\00E7'; }
+    &.uparrowsmall:before{ content:'\00E8'; }
+    &.downarrowsmall:before{ content:'\00E9'; }
+    &.rightarrowsmall:before{ content:'\00EA'; }
+    &.leftarrowcircle:before{ content:'\00EB'; }
+    &.uparrowcircle:before{ content:'\00EC'; }
+    &.downarrowcircle:before{ content:'\00ED'; }
+    &.rightarrowcircle:before{ content:'\00EE'; }
+    &.home:before{ content:'\00EF'; }
+    &.bookmark:before{ content:'\00F1'; }
+    &.maximize:before{ content:'\00F2'; }
+    &.opendocument:before{ content:'\00F3'; }
+    &.search:before{ content:'\00F4'; }
+    &.ellipsis:before{ content:'\00F6'; }
+}

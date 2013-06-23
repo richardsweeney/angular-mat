@@ -63,36 +63,543 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 4, ../sass/main.scss */
+@font-face {
+  font-family: 'EntypoRegular';
+  src: url("../fonts/entypo.eot");
+  src: url("../fonts/entypo.eot?#iefix") format("embedded-opentype"), url("../fonts/entypo.woff") format("woff"), url("../fonts/entypo.ttf") format("truetype"), url("../fonts/entypo.svg#EntypoRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+}
+
+/* line 14, ../sass/_entypo.scss */
+.entypo {
+  font-family: 'EntypoRegular';
+}
+/* line 16, ../sass/_entypo.scss */
+.entypo.phone:before {
+  content: '\0021';
+}
+/* line 17, ../sass/_entypo.scss */
+.entypo.smartphone:before {
+  content: '\0022';
+}
+/* line 18, ../sass/_entypo.scss */
+.entypo.mouse:before {
+  content: '\0023';
+}
+/* line 19, ../sass/_entypo.scss */
+.entypo.roadsign:before {
+  content: '\0024';
+}
+/* line 20, ../sass/_entypo.scss */
+.entypo.mail:before {
+  content: '\0025';
+}
+/* line 21, ../sass/_entypo.scss */
+.entypo.write:before {
+  content: '\0026';
+}
+/* line 22, ../sass/_entypo.scss */
+.entypo.attachment:before {
+  content: '\0027';
+}
+/* line 23, ../sass/_entypo.scss */
+.entypo.back:before {
+  content: '\0028';
+}
+/* line 24, ../sass/_entypo.scss */
+.entypo.doubleback:before {
+  content: '\0029';
+}
+/* line 25, ../sass/_entypo.scss */
+.entypo.forward:before {
+  content: '\002A';
+}
+/* line 26, ../sass/_entypo.scss */
+.entypo.user:before {
+  content: '\002B';
+}
+/* line 27, ../sass/_entypo.scss */
+.entypo.usergroup:before {
+  content: '\002C';
+}
+/* line 28, ../sass/_entypo.scss */
+.entypo.adduser:before {
+  content: '\002D';
+}
+/* line 29, ../sass/_entypo.scss */
+.entypo.profie:before {
+  content: '\002E';
+}
+/* line 30, ../sass/_entypo.scss */
+.entypo.newwindow:before {
+  content: '\002F';
+}
+/* line 31, ../sass/_entypo.scss */
+.entypo.mappin:before {
+  content: '\0030';
+}
+/* line 32, ../sass/_entypo.scss */
+.entypo.map:before {
+  content: '\0031';
+}
+/* line 33, ../sass/_entypo.scss */
+.entypo.compass:before {
+  content: '\0032';
+}
+/* line 34, ../sass/_entypo.scss */
+.entypo.compasshand:before {
+  content: '\0033';
+}
+/* line 35, ../sass/_entypo.scss */
+.entypo.crosshair:before {
+  content: '\0034';
+}
+/* line 36, ../sass/_entypo.scss */
+.entypo.link:before {
+  content: '\0035';
+}
+/* line 37, ../sass/_entypo.scss */
+.entypo.heart:before {
+  content: '\0036';
+}
+/* line 38, ../sass/_entypo.scss */
+.entypo.star:before {
+  content: '\0037';
+}
+/* line 39, ../sass/_entypo.scss */
+.entypo.thumbsup:before {
+  content: '\0038';
+}
+/* line 40, ../sass/_entypo.scss */
+.entypo.conversation:before {
+  content: '\0039';
+}
+/* line 41, ../sass/_entypo.scss */
+.entypo.comment:before {
+  content: '\003A';
+}
+/* line 42, ../sass/_entypo.scss */
+.entypo.rightquote:before {
+  content: '\003B';
+}
+/* line 43, ../sass/_entypo.scss */
+.entypo.printer:before {
+  content: '\003C';
+}
+/* line 44, ../sass/_entypo.scss */
+.entypo.bell:before {
+  content: '\003D';
+}
+/* line 45, ../sass/_entypo.scss */
+.entypo.brokenlink:before {
+  content: '\003E';
+}
+/* line 46, ../sass/_entypo.scss */
+.entypo.flag:before {
+  content: '\003F';
+}
+/* line 47, ../sass/_entypo.scss */
+.entypo.gear:before {
+  content: '\0040';
+}
+/* line 48, ../sass/_entypo.scss */
+.entypo.flashlight:before {
+  content: '\0041';
+}
+/* line 49, ../sass/_entypo.scss */
+.entypo.trophy:before {
+  content: '\0042';
+}
+/* line 50, ../sass/_entypo.scss */
+.entypo.tag:before {
+  content: '\0043';
+}
+/* line 51, ../sass/_entypo.scss */
+.entypo.camera:before {
+  content: '\0044';
+}
+/* line 52, ../sass/_entypo.scss */
+.entypo.moon:before {
+  content: '\0045';
+}
+/* line 53, ../sass/_entypo.scss */
+.entypo.palette:before {
+  content: '\0046';
+}
+/* line 54, ../sass/_entypo.scss */
+.entypo.envato:before {
+  content: '\0047';
+}
+/* line 55, ../sass/_entypo.scss */
+.entypo.musicnote:before {
+  content: '\0048';
+}
+/* line 56, ../sass/_entypo.scss */
+.entypo.bag:before {
+  content: '\0049';
+}
+/* line 57, ../sass/_entypo.scss */
+.entypo.airplane:before {
+  content: '\004A';
+}
+/* line 58, ../sass/_entypo.scss */
+.entypo.lifesaver:before {
+  content: '\004B';
+}
+/* line 59, ../sass/_entypo.scss */
+.entypo.rings:before {
+  content: '\004C';
+}
+/* line 60, ../sass/_entypo.scss */
+.entypo.eye:before {
+  content: '\004D';
+}
+/* line 61, ../sass/_entypo.scss */
+.entypo.clock:before {
+  content: '\004E';
+}
+/* line 62, ../sass/_entypo.scss */
+.entypo.microphone:before {
+  content: '\004F';
+}
+/* line 63, ../sass/_entypo.scss */
+.entypo.calender:before {
+  content: '\0050';
+}
+/* line 64, ../sass/_entypo.scss */
+.entypo.bolt:before {
+  content: '\0051';
+}
+/* line 65, ../sass/_entypo.scss */
+.entypo.hourglass:before {
+  content: '\0052';
+}
+/* line 66, ../sass/_entypo.scss */
+.entypo.rss:before {
+  content: '\0053';
+}
+/* line 67, ../sass/_entypo.scss */
+.entypo.signal:before {
+  content: '\0054';
+}
+/* line 68, ../sass/_entypo.scss */
+.entypo.lock:before {
+  content: '\0055';
+}
+/* line 69, ../sass/_entypo.scss */
+.entypo.unlock:before {
+  content: '\0056';
+}
+/* line 70, ../sass/_entypo.scss */
+.entypo.checkmark:before {
+  content: '\0057';
+}
+/* line 71, ../sass/_entypo.scss */
+.entypo.xmark:before {
+  content: '\0058';
+}
+/* line 72, ../sass/_entypo.scss */
+.entypo.minuscircle:before {
+  content: '\0059';
+}
+/* line 73, ../sass/_entypo.scss */
+.entypo.pluscircle:before {
+  content: '\005A';
+}
+/* line 74, ../sass/_entypo.scss */
+.entypo.xmarkcircle:before {
+  content: '\005B';
+}
+/* line 75, ../sass/_entypo.scss */
+.entypo.minus:before {
+  content: '\005C';
+}
+/* line 76, ../sass/_entypo.scss */
+.entypo.plus:before {
+  content: '\005D';
+}
+/* line 77, ../sass/_entypo.scss */
+.entypo.cancel:before {
+  content: '\005E';
+}
+/* line 78, ../sass/_entypo.scss */
+.entypo.info:before {
+  content: '\005F';
+}
+/* line 79, ../sass/_entypo.scss */
+.entypo.infocircle:before {
+  content: '\0060';
+}
+/* line 80, ../sass/_entypo.scss */
+.entypo.questionmark:before {
+  content: '\0061';
+}
+/* line 81, ../sass/_entypo.scss */
+.entypo.questioncircle:before {
+  content: '\0062';
+}
+/* line 82, ../sass/_entypo.scss */
+.entypo.caution:before {
+  content: '\0063';
+}
+/* line 83, ../sass/_entypo.scss */
+.entypo.clockwise:before {
+  content: '\0064';
+}
+/* line 84, ../sass/_entypo.scss */
+.entypo.counterclockwise:before {
+  content: '\0065';
+}
+/* line 85, ../sass/_entypo.scss */
+.entypo.crosspaths:before {
+  content: '\0066';
+}
+/* line 86, ../sass/_entypo.scss */
+.entypo.backarrow:before {
+  content: '\0067';
+}
+/* line 87, ../sass/_entypo.scss */
+.entypo.looparrow:before {
+  content: '\0068';
+}
+/* line 88, ../sass/_entypo.scss */
+.entypo.list:before {
+  content: '\0069';
+}
+/* line 89, ../sass/_entypo.scss */
+.entypo.listadd:before {
+  content: '\006A';
+}
+/* line 90, ../sass/_entypo.scss */
+.entypo.window:before {
+  content: '\006B';
+}
+/* line 91, ../sass/_entypo.scss */
+.entypo.document:before {
+  content: '\006C';
+}
+/* line 92, ../sass/_entypo.scss */
+.entypo.portrait:before {
+  content: '\006D';
+}
+/* line 93, ../sass/_entypo.scss */
+.entypo.copydocument:before {
+  content: '\006E';
+}
+/* line 94, ../sass/_entypo.scss */
+.entypo.landscape:before {
+  content: '\006F';
+}
+/* line 95, ../sass/_entypo.scss */
+.entypo.photos:before {
+  content: '\0070';
+}
+/* line 96, ../sass/_entypo.scss */
+.entypo.video:before {
+  content: '\0071';
+}
+/* line 97, ../sass/_entypo.scss */
+.entypo.music:before {
+  content: '\0072';
+}
+/* line 98, ../sass/_entypo.scss */
+.entypo.folder:before {
+  content: '\0073';
+}
+/* line 99, ../sass/_entypo.scss */
+.entypo.cabinet:before {
+  content: '\0074';
+}
+/* line 100, ../sass/_entypo.scss */
+.entypo.trash:before {
+  content: '\0075';
+}
+/* line 101, ../sass/_entypo.scss */
+.entypo.upload:before {
+  content: '\0076';
+}
+/* line 102, ../sass/_entypo.scss */
+.entypo.download:before {
+  content: '\0077';
+}
+/* line 103, ../sass/_entypo.scss */
+.entypo.hdd:before {
+  content: '\0078';
+}
+/* line 104, ../sass/_entypo.scss */
+.entypo.cloud:before {
+  content: '\0079';
+}
+/* line 105, ../sass/_entypo.scss */
+.entypo.cloudupload:before {
+  content: '\007A';
+}
+/* line 106, ../sass/_entypo.scss */
+.entypo.play:before {
+  content: '\007B';
+}
+/* line 107, ../sass/_entypo.scss */
+.entypo.pause:before {
+  content: '\007C';
+}
+/* line 108, ../sass/_entypo.scss */
+.entypo.record:before {
+  content: '\007D';
+}
+/* line 109, ../sass/_entypo.scss */
+.entypo.stop:before {
+  content: '\007E';
+}
+/* line 110, ../sass/_entypo.scss */
+.entypo.creativecommons:before {
+  content: '\00A9';
+}
+/* line 111, ../sass/_entypo.scss */
+.entypo.widewindow:before {
+  content: '\00AE';
+}
+/* line 112, ../sass/_entypo.scss */
+.entypo.nexttrack:before {
+  content: '\00C4';
+}
+/* line 113, ../sass/_entypo.scss */
+.entypo.previoustrack:before {
+  content: '\00C5';
+}
+/* line 114, ../sass/_entypo.scss */
+.entypo.beginningtrack:before {
+  content: '\00C7';
+}
+/* line 115, ../sass/_entypo.scss */
+.entypo.endtrack:before {
+  content: '\00C9';
+}
+/* line 116, ../sass/_entypo.scss */
+.entypo.zoomout:before {
+  content: '\00D1';
+}
+/* line 117, ../sass/_entypo.scss */
+.entypo.zoomin:before {
+  content: '\00D6';
+}
+/* line 118, ../sass/_entypo.scss */
+.entypo.volume:before {
+  content: '\00DC';
+}
+/* line 119, ../sass/_entypo.scss */
+.entypo.volumeoff:before {
+  content: '\00E0';
+}
+/* line 120, ../sass/_entypo.scss */
+.entypo.volumeon:before {
+  content: '\00E1';
+}
+/* line 121, ../sass/_entypo.scss */
+.entypo.leftarrow:before {
+  content: '\00E2';
+}
+/* line 122, ../sass/_entypo.scss */
+.entypo.uparrow:before {
+  content: '\00E3';
+}
+/* line 123, ../sass/_entypo.scss */
+.entypo.downarrow:before {
+  content: '\00E4';
+}
+/* line 124, ../sass/_entypo.scss */
+.entypo.rightarrow:before {
+  content: '\00E5';
+}
+/* line 125, ../sass/_entypo.scss */
+.entypo.leftarrowsmall:before {
+  content: '\00E7';
+}
+/* line 126, ../sass/_entypo.scss */
+.entypo.uparrowsmall:before {
+  content: '\00E8';
+}
+/* line 127, ../sass/_entypo.scss */
+.entypo.downarrowsmall:before {
+  content: '\00E9';
+}
+/* line 128, ../sass/_entypo.scss */
+.entypo.rightarrowsmall:before {
+  content: '\00EA';
+}
+/* line 129, ../sass/_entypo.scss */
+.entypo.leftarrowcircle:before {
+  content: '\00EB';
+}
+/* line 130, ../sass/_entypo.scss */
+.entypo.uparrowcircle:before {
+  content: '\00EC';
+}
+/* line 131, ../sass/_entypo.scss */
+.entypo.downarrowcircle:before {
+  content: '\00ED';
+}
+/* line 132, ../sass/_entypo.scss */
+.entypo.rightarrowcircle:before {
+  content: '\00EE';
+}
+/* line 133, ../sass/_entypo.scss */
+.entypo.home:before {
+  content: '\00EF';
+}
+/* line 134, ../sass/_entypo.scss */
+.entypo.bookmark:before {
+  content: '\00F1';
+}
+/* line 135, ../sass/_entypo.scss */
+.entypo.maximize:before {
+  content: '\00F2';
+}
+/* line 136, ../sass/_entypo.scss */
+.entypo.opendocument:before {
+  content: '\00F3';
+}
+/* line 137, ../sass/_entypo.scss */
+.entypo.search:before {
+  content: '\00F4';
+}
+/* line 138, ../sass/_entypo.scss */
+.entypo.ellipsis:before {
+  content: '\00F6';
+}
+
+/* line 5, ../sass/main.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 32, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  -webkit-text-size-adjust: 120%;
+  -webkit-text-size-adjust: 115%;
 }
 
-/* line 37, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 40, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 em {
   font-style: italics;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 .container {
   width: 100%;
   min-width: 320px;
   max-width: 600px;
+  min-height: 500px;
   margin: auto;
-  background: #fafafa;
+  background: #f8f9f8;
   padding: 55px 20px;
   position: relative;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
@@ -100,7 +607,7 @@ em {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-/* line 55, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 nav {
   position: fixed;
   top: 0;
@@ -110,48 +617,48 @@ nav {
   background: #111;
   color: #fff;
   height: 35px;
-  padding-top: 8px;
 }
-/* line 65, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 nav a {
   color: #fff;
   padding: 10px;
 }
-/* line 69, ../sass/main.scss */
+/* line 70, ../sass/main.scss */
 nav ul {
   margin: 0;
 }
-/* line 73, ../sass/main.scss */
+/* line 74, ../sass/main.scss */
 nav li:first-child {
   float: left;
-  margin-top: 2px;
+  font-size: 30px;
 }
-/* line 77, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 nav li:last-child {
   float: right;
+  margin-top: 10px;
 }
 
-/* line 84, ../sass/main.scss */
+/* line 86, ../sass/main.scss */
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
 }
-/* line 87, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 h1.secondary {
   font-size: 1.4em;
   padding-top: 15px;
 }
 
-/* line 93, ../sass/main.scss */
+/* line 95, ../sass/main.scss */
 h2.new-list-header {
   margin: 40px 0 10px;
 }
 
-/* line 98, ../sass/main.scss */
+/* line 100, ../sass/main.scss */
 input[type=search],
 input[type=text] {
   font-size: 18px;
-  padding: 10px;
+  padding: 5px 10px;
   width: 75%;
   max-width: 350px;
   min-width: 200px;
@@ -168,12 +675,7 @@ input[type=text] {
   -webkit-appearance: none;
 }
 
-/* line 111, ../sass/main.scss */
-input[type=search] {
-  padding: 5px 0;
-}
-
-/* line 116, ../sass/main.scss */
+/* line 115, ../sass/main.scss */
 input[type=submit],
 button {
   font-size: 16px;
@@ -191,7 +693,7 @@ button {
   border-radius: 2px;
   -webkit-appearance: none;
 }
-/* line 119, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 input[type=submit].small,
 button.small {
   font-size: 14px;
@@ -212,27 +714,91 @@ button.small {
   border-radius: 2px;
 }
 
-/* line 127, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
+button.sok {
+  font-size: 29px;
+  padding: 0px 20px;
+}
+
+/* line 129, ../sass/main.scss */
 ul {
   list-style: none;
   margin: 20px 0;
   padding: 0;
 }
 
-/* line 132, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 li {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
-/* line 136, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #3F72D8;
 }
 
-/* line 141, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
+.list {
+  max-width: 350px;
+  margin-bottom: 30px;
+}
+/* line 147, ../sass/main.scss */
+.list li {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 150, ../sass/main.scss */
+.list a {
+  float: left;
+  padding: 10px;
+  background: #fff;
+  color: #333;
+  width: 80%;
+  position: relative;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 159, ../sass/main.scss */
+.list a span {
+  position: absolute;
+  right: 10px;
+  top: -2px;
+  font-size: 40px;
+}
+/* line 165, ../sass/main.scss */
+.list a.remove {
+  background: none;
+  float: right;
+  font-size: 20px;
+  color: #222;
+  width: 10%;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 176, ../sass/main.scss */
+.foodstuff {
+  margin-top: 40px;
+}
+/* line 178, ../sass/main.scss */
+.foodstuff li {
+  padding: 5px;
+}
+/* line 181, ../sass/main.scss */
+.foodstuff li:nth-of-type(odd) {
+  background: #fff;
+}
+
+/* line 187, ../sass/main.scss */
 .name {
-  font-weight: bold;
   width: 150px;
   display: -moz-inline-stack;
   display: inline-block;
@@ -242,20 +808,7 @@ a {
   *display: inline;
 }
 
-/* line 147, ../sass/main.scss */
-.list {
-  max-width: 300px;
-}
-
-/* line 151, ../sass/main.scss */
-a.remove {
-  padding: 0 3px;
-  float: right;
-  color: red;
-  font-size: 20px;
-}
-
-/* line 158, ../sass/main.scss */
+/* line 193, ../sass/main.scss */
 .message {
   padding: 20px 0;
   color: #333;

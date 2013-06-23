@@ -3,10 +3,6 @@ var app = angular
     .module( 'matApp', ['ngSanitize'] )
     .config( function( $routeProvider, $locationProvider ) {
 
-        window.setTimeout( function() {
-            window.scrollTo( 0, 1 )
-        }, 0 )
-
         $locationProvider.html5Mode( true )
 
         $routeProvider
@@ -149,6 +145,12 @@ var app = angular
 
 function HomeCtrl( $scope, $location, matApi, lists ) {
 
+    window.addEventListener( 'load', function() {
+        window.setTimeout( function() {
+            window.scrollTo( 0, 1 )
+        }, 0 )
+    })
+
     $scope.searchTerm = ''
 
     $scope.search = function() {
@@ -222,10 +224,8 @@ function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
         }
 
         angular.forEach( $scope.lists, function( list, index ) {
-            if ( list.name === $scope.listObject.name ) {
+            if ( list.name === $scope.listObject.name )
                 $scope.message = lists.setFoodstuff( index, foodstuff )
-
-            }
 
         })
     }
