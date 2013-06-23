@@ -74,12 +74,14 @@ var app = angular
                 return foodstuff.name + ' har lagts till i listan'
 
             },
-            removeFoodstuff: function( index, foodstuff ) {
+            removeFoodstuff: function( listIndex, foodstuffIndex ) {
                 var storage = angular.fromJson( localStorage.angularMat )
-                // storage.lists[ index ].foods.splice( foodstuff ) FIX THIS!!
+
+                storage.lists[ listIndex ].foods.splice( foodstuffIndex, 1 )
+
                 localStorage.angularMat = angular.toJson( storage )
-                return storage.lists
-            },
+                return storage.lists[ listIndex ].foods
+            }
 
         }
 
@@ -129,7 +131,7 @@ var app = angular
     })
 
 
-function HomeCtrl( $scope, $location, matApi ) {
+function HomeCtrl( $scope, $location, matApi, lists ) {
 
     $scope.searchTerm = ''
 
@@ -230,7 +232,13 @@ function ListCtrl( $scope, lists ) {
 
 function SingleListCtrl( $scope, $routeParams, lists ) {
 
-    var lists = lists.get()
-    $scope.foods = lists[$routeParams.id].foods
+    var allLists = lists.get(),
+        currentList = allLists[ $routeParams.id ]
+
+    $scope.foods = currentList.foods
+
+    $scope.removeListItem = function( foodstuffIndex ) {
+        $scope.foods = lists.removeFoodstuff( $routeParams.id, foodstuffIndex )
+    }
 
 }

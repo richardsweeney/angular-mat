@@ -52,6 +52,10 @@ h1 {
     }
 }
 
+h2.new-list-header {
+    margin: 40px 0 10px;
+}
+
 input[type=search],
 input[type=text] {
     font-size: 18px;
@@ -82,7 +86,7 @@ ul {
     padding: 0;
 }
 li {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 a {
