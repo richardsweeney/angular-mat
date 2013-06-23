@@ -3,7 +3,6 @@
 
 * {
     @include box-sizing( 'border-box' );
-    -webkit-appearance: none;
 }
 
 @mixin button( $color: #3F72D8 ) {
@@ -19,13 +18,13 @@
 }
 
 @mixin small-button() {
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: 14px;
+    padding: 5px 10px;
     color: #111;
     border: 1px solid rgba( #000, 0.2 );
     text-shadow: none;
     background: #fff;
-    @include background( linear-gradient( top, #fff, #fafafa ) );
+    @include background( linear-gradient( bottom, #eee, #fff ) );
     @include border-radius( 2px );
 }
 
@@ -34,13 +33,50 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+strong {
+    font-weight: bold;
+}
+em {
+    font-style: italics;
+}
+
 .container {
     width: 100%;
     min-width: 320px;
     max-width: 600px;
-    margin: 30px auto;
+    margin: auto;
     background: #fafafa;
-    padding: 20px;
+    padding: 50px 20px;
+    position: relative;
+    @include box-shadow( 0 0 3px rgba( #000, 0.2 ) )
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    max-width: 600px;
+    margin-left: -20px;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    height: 30px;
+    padding-top: 5px;
+    a {
+        color: #fff;
+        padding: 10px;
+    }
+    ul {
+        margin: 0;
+    }
+    li {
+        &:first-child {
+            float: left;
+            margin-top: 2px;
+        }
+        &:last-child {
+            float: right;
+        }
+    }
 }
 
 
@@ -60,12 +96,15 @@ h2.new-list-header {
 input[type=search],
 input[type=text] {
     font-size: 18px;
-    padding: 5px 10px;
+    padding: 10px;
+    width: 75%;
+    max-width: 350px;
     min-width: 200px;
     margin-bottom: 20px;
     border: 1px solid rgba( #000, 0.25 );
     @include box-shadow( inset 1px 1px 1px rgba( #000, 0.1 ) );
     @include border-radius( 3px );
+    -webkit-appearance: none;
 
 }
 input[type=search] {
@@ -75,9 +114,13 @@ input[type=search] {
 input[type=submit],
 button {
     @include button;
+    -webkit-appearance: none;
     &.small {
         @include small-button;
     }
+}
+
+select {
 }
 
 ul {
@@ -96,7 +139,7 @@ a {
 
 .name {
     font-weight: bold;
-    width: 120px;
+    width: 150px;
     @include inline-block;
 }
 

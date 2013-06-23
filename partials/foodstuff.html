@@ -3,20 +3,29 @@
 
     <header>
         <h1 class="secondary">{{ foodstuff.name }}</h1>
+        <h2>Näringsvärden per 100g</h2>
     </header>
 
     <ul>
         <li ng-repeat="property in foodstuff.properties">
-            <span class="name">{{ property.name }}</span> {{ property.value }}
+            <span class="name">{{ property.name }}</span> {{ property.value }} {{ property.unit }}
         </li>
     </ul>
 
-    <button class="small" ng-click="save()">spara till lista</button>
+    <footer>
 
-    <select ng-model="listObject" ng-options="list.name for list in lists">
-        <option value=""> -- välj -- </option>
-    </select>
+        <header>
+            <h2 class="new-list-header">Lägg till i listan:</h2>
+        </header>
 
-    <p class="message">{{ message }}</p>
+        <select ng-model="listObject" ng-options="list.name for list in lists">
+            <option value=""> -- välj listan -- </option>
+        </select>
+
+        <button class="small" ng-click="save()">ok</button>
+
+        <div ng-bind-html="message" class="message"></p>
+
+    </footer>
 
 </section>

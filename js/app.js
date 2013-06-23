@@ -1,6 +1,6 @@
 
 var app = angular
-    .module( 'matApp', [] )
+    .module( 'matApp', ['ngSanitize'] )
     .config( function( $routeProvider, $locationProvider ) {
 
         $locationProvider.html5Mode( true )
@@ -71,7 +71,7 @@ var app = angular
                 storage.lists[ index ].foods.push( foodstuff )
                 localStorage.angularMat = angular.toJson( storage )
 
-                return foodstuff.name + ' har lagts till i listan'
+                return '<strong>' + foodstuff.name + '</strong> har lagts till i listan <strong>' + storage.lists[ index ].name + '</strong>'
 
             },
             removeFoodstuff: function( listIndex, foodstuffIndex ) {
@@ -131,9 +131,30 @@ var app = angular
     })
 
 
+
+
+
+
+
+/*****************************************************************
+
+    ********************** CONTROLLERS **********************
+
+*****************************************************************/
+
+
 function HomeCtrl( $scope, $location, matApi, lists ) {
 
     $scope.searchTerm = ''
+
+    $scope.showSearch = true
+
+    $scope.dropSearch = function() {
+        if ( $scope.showSearch === true )
+            $scope.showSearch = false
+        else
+            $scope.showSearch = true
+    }
 
     $scope.search = function() {
         $scope.message = ''
@@ -169,6 +190,10 @@ function SearchCtrl( $scope, $routeParams, matApi ) {
 
 function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
 
+    function pointToComma( num ) {
+        return num.toString().replace( '.', ',' )
+    }
+
     matApi
         .getFoodstuff( $routeParams.id )
         .then( function ( data ) {
@@ -177,11 +202,12 @@ function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
             $scope.foodstuff = {
                 name: data.name,
                 properties: [
-                    { name: 'Kolhydrater',      value: data.nutrientValues.carbohydrates    },
-                    { name: 'Protein',          value: data.nutrientValues.protein          },
-                    { name: 'Energy (Kcal)',    value: data.nutrientValues.energyKcal       },
-                    { name: 'Fett',             value: data.nutrientValues.fat              },
-                    { name: 'Kolesterol',       value: data.nutrientValues.cholesterol      }
+                    { name: 'Kolhydrater',  value: pointToComma( data.nutrientValues.carbohydrates ),   unit: 'g'    },
+                    { name: 'Protein',      value: pointToComma( data.nutrientValues.protein ),         unit: 'g'    },
+                    { name: 'Energy',       value: pointToComma( data.nutrientValues.energyKcal ),      unit: 'Kcal' },
+                    { name: 'Energy',       value: pointToComma( data.nutrientValues.energyKj ),        unit: 'kj'   },
+                    { name: 'Fett',         value: pointToComma( data.nutrientValues.fat ),             unit: 'g'    },
+                    { name: 'Kolesterol',   value: pointToComma( data.nutrientValues.cholesterol ),     unit: 'mg'   }
                 ]
             }
 
@@ -203,6 +229,7 @@ function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
         angular.forEach( $scope.lists, function( list, index ) {
             if ( list.name === $scope.listObject.name ) {
                 $scope.message = lists.setFoodstuff( index, foodstuff )
+
             }
 
         })
