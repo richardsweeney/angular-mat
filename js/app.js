@@ -156,10 +156,14 @@ function HomeCtrl( $scope, $location, matApi, lists ) {
     $scope.search = function() {
         $scope.message = ''
 
-        if ( '' === $scope.searchTerm )
+        if ( '' === $scope.searchTerm ) {
             $scope.message = 'Vänligen ange ett sökord'
-        else
+
+        } else {
             $location.path( '/search/' + $scope.searchTerm )
+            document.activeElement.blur()
+
+        }
 
     }
 
@@ -195,7 +199,6 @@ function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
         .getFoodstuff( $routeParams.id )
         .then( function ( data ) {
 
-            // Prepare the foodstuff object
             $scope.foodstuff = {
                 name: data.name,
                 properties: [
