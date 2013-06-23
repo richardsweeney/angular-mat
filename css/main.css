@@ -632,31 +632,32 @@ nav ul {
 /* line 76, ../sass/main.scss */
 nav li:first-child {
   float: left;
+  margin-top: -5px;
   font-size: 30px;
 }
-/* line 80, ../sass/main.scss */
+/* line 81, ../sass/main.scss */
 nav li:last-child {
   float: right;
   margin-top: 10px;
 }
 
-/* line 88, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
 }
-/* line 91, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 h1.secondary {
   font-size: 1.4em;
   padding-top: 15px;
 }
 
-/* line 97, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 h2.new-list-header {
   margin: 40px 0 10px;
 }
 
-/* line 102, ../sass/main.scss */
+/* line 103, ../sass/main.scss */
 input[type=search],
 input[type=text] {
   font-size: 18px;
@@ -677,7 +678,7 @@ input[type=text] {
   -webkit-appearance: none;
 }
 
-/* line 117, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 input[type=submit],
 button {
   font-size: 16px;
@@ -695,7 +696,7 @@ button {
   border-radius: 2px;
   -webkit-appearance: none;
 }
-/* line 120, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 input[type=submit].small,
 button.small {
   font-size: 14px;
@@ -716,40 +717,40 @@ button.small {
   border-radius: 2px;
 }
 
-/* line 125, ../sass/main.scss */
+/* line 126, ../sass/main.scss */
 button.sok {
   font-size: 29px;
   padding: 0px 20px;
 }
 
-/* line 131, ../sass/main.scss */
+/* line 132, ../sass/main.scss */
 ul {
   list-style: none;
   margin: 20px 0;
   padding: 0;
 }
 
-/* line 136, ../sass/main.scss */
+/* line 137, ../sass/main.scss */
 li {
   padding-bottom: 5px;
 }
 
-/* line 140, ../sass/main.scss */
+/* line 141, ../sass/main.scss */
 a {
   text-decoration: none;
   color: #3F72D8;
 }
 
-/* line 146, ../sass/main.scss */
+/* line 147, ../sass/main.scss */
 .list {
   margin-bottom: 30px;
 }
-/* line 148, ../sass/main.scss */
+/* line 149, ../sass/main.scss */
 .list li {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 151, ../sass/main.scss */
+/* line 152, ../sass/main.scss */
 .list a {
   float: left;
   padding: 10px 30px 10px 10px;
@@ -766,14 +767,14 @@ a {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 160, ../sass/main.scss */
+/* line 161, ../sass/main.scss */
 .list a span {
   position: absolute;
   right: 10px;
   top: -2px;
   font-size: 40px;
 }
-/* line 166, ../sass/main.scss */
+/* line 167, ../sass/main.scss */
 .list a.remove {
   background: none;
   float: right;
@@ -785,20 +786,20 @@ a {
   box-shadow: none;
 }
 
-/* line 177, ../sass/main.scss */
+/* line 178, ../sass/main.scss */
 .foodstuff {
   margin-top: 40px;
 }
-/* line 179, ../sass/main.scss */
+/* line 180, ../sass/main.scss */
 .foodstuff li {
   padding: 5px;
 }
-/* line 182, ../sass/main.scss */
+/* line 183, ../sass/main.scss */
 .foodstuff li:nth-of-type(odd) {
   background: #fff;
 }
 
-/* line 188, ../sass/main.scss */
+/* line 189, ../sass/main.scss */
 .name {
   width: 150px;
   display: -moz-inline-stack;
@@ -809,7 +810,7 @@ a {
   *display: inline;
 }
 
-/* line 194, ../sass/main.scss */
+/* line 195, ../sass/main.scss */
 .message {
   padding: 20px 0;
   color: #333;

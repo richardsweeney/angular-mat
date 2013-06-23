@@ -75,6 +75,7 @@ nav {
     li {
         &:first-child {
             float: left;
+            margin-top: -5px;
             font-size: 30px;
         }
         &:last-child {
