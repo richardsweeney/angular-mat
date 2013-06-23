@@ -31,6 +31,7 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
+    -webkit-text-size-adjust: none;
 }
 
 strong {
@@ -46,7 +47,7 @@ em {
     max-width: 600px;
     margin: auto;
     background: #fafafa;
-    padding: 50px 20px;
+    padding: 55px 20px;
     position: relative;
     @include box-shadow( 0 0 3px rgba( #000, 0.2 ) )
 }
@@ -59,8 +60,8 @@ nav {
     width: 100%;
     background: #111;
     color: #fff;
-    height: 30px;
-    padding-top: 5px;
+    height: 35px;
+    padding-top: 8px;
     a {
         color: #fff;
         padding: 10px;
