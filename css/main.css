@@ -68,14 +68,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-appearance: none;
 }
 
-/* line 32, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* line 36, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 .container {
   width: 100%;
   min-width: 320px;
@@ -85,23 +86,23 @@ body {
   padding: 20px;
 }
 
-/* line 46, ../sass/main.scss */
+/* line 47, ../sass/main.scss */
 h1 {
   font-size: 2em;
   margin-bottom: 10px;
 }
-/* line 49, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 h1.secondary {
   font-size: 1.4em;
   padding-top: 15px;
 }
 
-/* line 55, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 h2.new-list-header {
   margin: 40px 0 10px;
 }
 
-/* line 60, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 input[type=search],
 input[type=text] {
   font-size: 18px;
@@ -119,9 +120,8 @@ input[type=text] {
   border-radius: 3px;
 }
 
-/* line 70, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 input[type=search] {
-  -webkit-appearance: none;
   padding: 5px 0;
 }
 
