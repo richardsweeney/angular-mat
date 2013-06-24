@@ -785,21 +785,25 @@ a {
   -moz-box-shadow: none;
   box-shadow: none;
 }
+/* line 177, ../sass/main.scss */
+.list.full-width li a {
+  width: 100%;
+}
 
-/* line 178, ../sass/main.scss */
+/* line 183, ../sass/main.scss */
 .foodstuff {
   margin-top: 40px;
 }
-/* line 180, ../sass/main.scss */
+/* line 185, ../sass/main.scss */
 .foodstuff li {
   padding: 5px;
 }
-/* line 183, ../sass/main.scss */
+/* line 188, ../sass/main.scss */
 .foodstuff li:nth-of-type(odd) {
   background: #fff;
 }
 
-/* line 189, ../sass/main.scss */
+/* line 194, ../sass/main.scss */
 .name {
   width: 150px;
   display: -moz-inline-stack;
@@ -810,7 +814,7 @@ a {
   *display: inline;
 }
 
-/* line 195, ../sass/main.scss */
+/* line 200, ../sass/main.scss */
 .message {
   padding: 20px 0;
   color: #333;

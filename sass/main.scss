@@ -173,6 +173,11 @@ a {
             @include box-shadow( none );
         }
     }
+    &.full-width {
+        li a {
+            width: 100%;
+        }
+    }
 }
 
 .foodstuff {
