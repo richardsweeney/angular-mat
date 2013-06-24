@@ -6,14 +6,65 @@ var app = angular
         $locationProvider.html5Mode( true )
 
         $routeProvider
+
+            .when( '/', {
+                controller: HomeCtrl,
+                templateUrl: '/partials/home.html'
+
+            })
             .when( '/search/:term', {
                 controller: SearchCtrl,
-                templateUrl: '/partials/search.html'
+                templateUrl: '/partials/search.html',
+                resolve: {
+                    results: function( $q, $http, $route ) {
+
+                        delete $http.defaults.headers.common['X-Requested-With']
+
+                        var term = $route.current.params.term,
+                            deferred = $q.defer()
+
+                        $http
+                            .get( 'http://matapi.se/foodstuff/?query=' + term )
+                            .success( function( results ) {
+                                deferred.resolve( results )
+
+                            })
+                            .error( function() {
+                                deferred.reject( 'Inga resultat' )
+
+                            })
+
+                        return deferred.promise
+                    }
+                }
 
             })
             .when( '/foodstuff/:id', {
                 controller: FoodstuffCtrl,
-                templateUrl: '/partials/foodstuff.html'
+                templateUrl: '/partials/foodstuff.html',
+                resolve: {
+                    foodstuff: function( $q, $http, $route ) {
+
+                        delete $http.defaults.headers.common['X-Requested-With']
+
+                        var deferred = $q.defer(),
+                            id = $route.current.params.id
+
+                        $http
+                            .get( 'http://matapi.se/foodstuff/' + id )
+                            .success( function( data ) {
+                                deferred.resolve( data )
+
+                            })
+                            .error( function() {
+                                deferred.reject()
+
+                            })
+
+                        return deferred.promise
+
+                    }
+                }
 
             })
             .when( '/list', {
@@ -29,7 +80,7 @@ var app = angular
             .otherwise({ redirectTo: '/' })
 
     })
-    .factory( 'lists', function( ) {
+    .factory( 'lists', function() {
 
         if ( localStorage.angularMat === undefined ) {
             localStorage.angularMat = angular.toJson( { lists: [] } )
@@ -56,7 +107,11 @@ var app = angular
             setFoodstuff: function( index, foodstuff ) {
                 var storage = angular.fromJson( localStorage.angularMat ),
                     foodsList = storage.lists[ index ].foods,
-                    exists = false
+                    exists = false,
+                    result = {
+                        name: foodstuff.name,
+                        list: storage.lists[ index ].name
+                    }
 
 
                 angular.forEach( foodsList, function( food, index ) {
@@ -65,13 +120,17 @@ var app = angular
 
                 })
 
-                if ( exists === true )
-                    return foodstuff.name + ' finns redan i denna lista'
+
+                if ( exists === true ) {
+                    result.success = false
+                    return result
+                }
 
                 storage.lists[ index ].foods.push( foodstuff )
                 localStorage.angularMat = angular.toJson( storage )
 
-                return '<strong>' + foodstuff.name + '</strong> har lagts till i listan <strong>' + storage.lists[ index ].name + '</strong>'
+                result.success = true
+                return result
 
             },
             removeFoodstuff: function( listIndex, foodstuffIndex ) {
@@ -87,49 +146,6 @@ var app = angular
 
 
     })
-    .factory( 'matApi', function( $http, $q, $routeParams ) {
-
-        delete $http.defaults.headers.common['X-Requested-With']
-
-        return {
-            search: function() {
-                //create our deferred object.
-                var deferred = $q.defer()
-
-                $http
-                    .get( 'http://matapi.se/foodstuff/?query=' + $routeParams.term )
-                    .success( function( results ) {
-                        deferred.resolve( results )
-
-                    })
-                    .error( function() {
-                        deferred.reject()
-
-                    })
-
-                return deferred.promise
-            },
-            getFoodstuff: function( id ) {
-                //create our deferred object.
-                var deferred = $q.defer()
-
-                $http
-                    .get( 'http://matapi.se/foodstuff/' + id )
-                    .success( function( data ) {
-                        deferred.resolve( data )
-
-                    })
-                    .error( function() {
-                        deferred.reject()
-
-                    })
-
-                return deferred.promise
-            }
-        }
-
-    })
-
 
 
 
@@ -143,7 +159,7 @@ var app = angular
 *****************************************************************/
 
 
-function HomeCtrl( $scope, $location, matApi, lists ) {
+function HomeCtrl( $scope, $location ) {
 
     window.addEventListener( 'load', function() {
         window.setTimeout( function() {
@@ -152,6 +168,7 @@ function HomeCtrl( $scope, $location, matApi, lists ) {
     })
 
     $scope.searchTerm = ''
+    $scope.message = ''
 
     $scope.search = function() {
         $scope.message = ''
@@ -171,47 +188,32 @@ function HomeCtrl( $scope, $location, matApi, lists ) {
 }
 
 
-function SearchCtrl( $scope, $routeParams, matApi ) {
+function SearchCtrl( $scope, $routeParams, results ) {
 
     $scope.term = $routeParams.term
-    $scope.noResults = ''
-
-    matApi
-        .search()
-        .then( function ( data ) {
-            if ( data.length === 0 )
-                $scope.noResults = 'inga resultat hittades'
-            else
-                $scope.results = data
-
-        })
+    $scope.results = results
 
 }
 
 
-function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
+function FoodstuffCtrl( $scope, $routeParams, foodstuff, lists ) {
 
     function pointToComma( num ) {
         return num.toString().replace( '.', ',' )
     }
 
-    matApi
-        .getFoodstuff( $routeParams.id )
-        .then( function ( data ) {
 
-            $scope.foodstuff = {
-                name: data.name,
-                properties: [
-                    { name: 'Kolhydrater',  value: pointToComma( data.nutrientValues.carbohydrates ),   unit: 'g'    },
-                    { name: 'Protein',      value: pointToComma( data.nutrientValues.protein ),         unit: 'g'    },
-                    { name: 'Energy',       value: pointToComma( data.nutrientValues.energyKcal ),      unit: 'Kcal' },
-                    { name: 'Energy',       value: pointToComma( data.nutrientValues.energyKj ),        unit: 'kj'   },
-                    { name: 'Fett',         value: pointToComma( data.nutrientValues.fat ),             unit: 'g'    },
-                    { name: 'Kolesterol',   value: pointToComma( data.nutrientValues.cholesterol ),     unit: 'mg'   }
-                ]
-            }
-
-        })
+    $scope.foodstuff = {
+        name: foodstuff.name,
+        properties: [
+            { name: 'Kolhydrater',  value: pointToComma( foodstuff.nutrientValues.carbohydrates ),   unit: 'g'    },
+            { name: 'Protein',      value: pointToComma( foodstuff.nutrientValues.protein ),         unit: 'g'    },
+            { name: 'Energy',       value: pointToComma( foodstuff.nutrientValues.energyKcal ),      unit: 'Kcal' },
+            { name: 'Energy',       value: pointToComma( foodstuff.nutrientValues.energyKj ),        unit: 'kj'   },
+            { name: 'Fett',         value: pointToComma( foodstuff.nutrientValues.fat ),             unit: 'g'    },
+            { name: 'Kolesterol',   value: pointToComma( foodstuff.nutrientValues.cholesterol ),     unit: 'mg'   }
+        ]
+    }
 
 
     $scope.lists = lists.get()
@@ -227,8 +229,14 @@ function FoodstuffCtrl( $scope, $routeParams, matApi, lists ) {
         }
 
         angular.forEach( $scope.lists, function( list, index ) {
-            if ( list.name === $scope.listObject.name )
-                $scope.message = lists.setFoodstuff( index, foodstuff )
+            if ( list.name === $scope.listObject.name ) {
+                var result = lists.setFoodstuff( index, foodstuff )
+
+                if ( result.success === true )
+                    $scope.message = result.name + ' har lagts till i listan ' + result.list
+                else
+                    $scope. message = result.name + ' finns redan i listan ' + result.list
+            }
 
         })
     }

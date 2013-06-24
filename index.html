@@ -20,27 +20,14 @@
 
     <div class="container">
 
-        <div ng-controller="HomeCtrl">
-
-            <header>
-                <nav>
-                    <ul>
-                        <li class="search"><a href="/" class="entypo">&#8962;</a></li>
-                        <li class="lists"><a href="/list">Listor</a></li>
-                    </ul>
-                </nav>
-            </header>
-
-            <header>
-                <h1>Sök livsmedel</h1>
-            </header>
-
-            <form ng-submit="search()">
-                <input type="search" name="search" ng-model="searchTerm">
-                <button class="entypo sok">&#128269;</button>
-            </form>
-
-        </div>
+        <header>
+            <nav>
+                <ul>
+                    <li class="search"><a href="/" class="entypo">&#8962;</a></li>
+                    <li class="lists"><a href="/list">Listor</a></li>
+                </ul>
+            </nav>
+        </header>
 
         <div ng-view></div>
 
