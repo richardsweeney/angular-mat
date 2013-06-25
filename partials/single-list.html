@@ -8,7 +8,7 @@
 
     <ul class="list">
         <li ng-repeat="foodstuff in foods">
-            <a href="/foodstuff/{{ foodstuff.number }}">{{ foodstuff.name }}</a>
+            <a href="/foodstuff/{{ foodstuff.number }}">{{ foodstuff.name }} <span class="entypo">&#59230;</span></a>
             <a href="#" class="remove entypo" ng-click="removeListItem( $index )">&#10006;</a>
         </li>
     </ul>

@@ -1,9 +1,25 @@
 @import 'compass';
 @import 'compass/reset';
-@import 'entypo';
+
+@font-face {
+    font-family: 'EntypoRegular';
+    src: url('../fonts/entypo.eot');
+    src: url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/entypo.woff') format('woff'),
+         url('../fonts/entypo.ttf') format('truetype'),
+         url('../fonts/entypo.svg#EntypoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+}
 
 * {
     @include box-sizing( 'border-box' );
+}
+
+.entypo {
+    font-family: 'EntypoRegular';
+    font-size: 30px;
 }
 
 @mixin button( $color: #3F72D8 ) {
@@ -154,7 +170,7 @@ a {
         padding: 10px 30px 10px 10px;
         background: #fff;
         color: #333;
-        width: 80%;
+        width: 90%;
         position: relative;
         @include box-shadow( 0 0 3px rgba( #000, 0.3 ) );
         @include border-radius( 1px );
@@ -167,7 +183,8 @@ a {
         &.remove {
             background: none;
             float: right;
-            font-size: 20px;
+            text-align: right;
+            margin-top: -10px;
             color: #222;
             width: 10%;
             @include box-shadow( none );
